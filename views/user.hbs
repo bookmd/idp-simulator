@@ -89,9 +89,9 @@
         <div class='form-profile-attributes'>
 
           <div class="form-group">
-            <label for="userName" class="col-sm-3 control-label">Subject NameID</label>
+            <label for="ssn" class="col-sm-3 control-label">SSN</label>
             <div class="col-sm-9">
-              <input id="userName" class="form-control" name="userName" type="email" placeholder="user@example.com" required="" value="{{user.userName}}">
+              <input id="ID" class="form-control" name="ID" type="text" placeholder="ssn" required="" value="{{user.ID}}">
               <p class="help-block">
                 <a data-toggle="collapse" href="#collapseNameId" aria-expanded="false" aria-controls="collapseNameId">
                 <i class="fa fa-plus"><span>More Options</span></i>
@@ -106,6 +106,7 @@
               <label for="nameIdFormat" class="col-sm-3 control-label">Name ID Format</label>
               <div class="col-sm-9">
                 <select id="nameIdFormat" class="form-control" name="nameIdFormat">
+
                   <option>urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress</option>
                   <option>urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified</option>
                   <option>urn:oasis:names:tc:SAML:2.0:nameid-format:persistent</option>
@@ -114,6 +115,7 @@
                   <option>urn:oasis:names:tc:SAML:1.1:nameid-format:WindowsDomainQualifiedName</option>
                   <option>urn:oasis:names:tc:SAML:2.0:nameid-format:kerberos</option>
                 </select>
+              </div>
               </div>
             </div>
 

@@ -258,7 +258,7 @@ function _runServer(argv) {
    * IdP Configuration
    */
 
-  SimpleProfileMapper.prototype.metadata = argv.config.metadata;
+  // SimpleProfileMapper.prototype.metadata = argv.config.metadata;
 
   var idpOptions = {
     issuer:                 argv.issuer,
@@ -402,6 +402,7 @@ function _runServer(argv) {
   app.post('/sso', function(req, res) {
     var authOptions = extend({}, req.idp.options);
     console.log('here');
+    console.log('REQUEST:', JSON.stringify(req.body));
     Object.keys(req.body).forEach(function(key) {
       var buffer;
       if (key === '_authnRequest') {
@@ -428,9 +429,12 @@ function _runServer(argv) {
       delete authOptions.encryptionCert;
       delete authOptions.encryptionPublicKey;
     }
-
+    console.log('authOptions.encryptAssertion', authOptions.encryptAssertion);
+    console.log('authOptions.encryptionCert', authOptions.encryptionCert);
+    console.log('authOptions.encryptionPublicKey', authOptions.encryptionPublicKey);
     // Keep calm and Single Sign On
     console.log('Sending Assertion with Options => \n', authOptions);
+    console.log('Req.user:', req.user);
     samlp.auth(authOptions)(req, res);
   })
 
